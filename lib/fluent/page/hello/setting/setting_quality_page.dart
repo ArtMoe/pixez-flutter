@@ -126,11 +126,11 @@ class _SettingQualityPageState extends State<SettingQualityPage>
               value: userSetting.pictureQuality,
               items: [
                 ComboBoxItem(
-                  child: Text(I18n.of(context).medium),
+                  child: Text(I18n.of(context).large),
                   value: 0,
                 ),
                 ComboBoxItem(
-                  child: Text(I18n.of(context).large),
+                  child: Text(I18n.of(context).source),
                   value: 1,
                 ),
               ],
