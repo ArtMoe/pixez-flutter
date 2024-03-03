@@ -402,8 +402,8 @@ class _IllustRowPageState extends State<IllustRowPage>
     return Center(child: Builder(
       builder: (BuildContext context) {
         String url = userSetting.pictureQuality == 1
-            ? data.imageUrls.large
-            : data.imageUrls.medium;
+            ? data.metaSinglePage!.originalImageUrl!
+            : data.imageUrls.large;
         if (data.type == "manga") {
           if (userSetting.mangaQuality == 0)
             url = data.imageUrls.medium;
@@ -513,9 +513,9 @@ class _IllustRowPageState extends State<IllustRowPage>
         ? (userSetting.pictureQuality == 1
             ? NullHero(
                 child: PixivImage(
-                  illust.metaPages[index].imageUrls!.large,
+                  illust.metaPages[index].imageUrls!.original,
                   placeWidget: PixivImage(
-                    illust.metaPages[index].imageUrls!.medium,
+                    illust.metaPages[index].imageUrls!.large,
                     fade: false,
                   ),
                   fade: false,
@@ -531,8 +531,8 @@ class _IllustRowPageState extends State<IllustRowPage>
               ))
         : PixivImage(
             userSetting.pictureQuality == 0
-                ? illust.metaPages[index].imageUrls!.medium
-                : illust.metaPages[index].imageUrls!.large,
+                ? illust.metaPages[index].imageUrls!.large
+                : illust.metaPages[index].imageUrls!.original,
             fade: false,
             placeWidget: Container(
               height: 150,
