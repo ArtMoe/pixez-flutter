@@ -28,7 +28,6 @@ import 'package:pixez/er/fetcher.dart';
 import 'package:pixez/er/hoster.dart';
 import 'package:pixez/fluent/fluentui.dart';
 import 'package:pixez/network/onezero_client.dart';
-import 'package:pixez/page/history/history_store.dart';
 import 'package:pixez/page/novel/history/novel_history_store.dart';
 import 'package:pixez/page/splash/splash_page.dart';
 import 'package:pixez/page/splash/splash_store.dart';
@@ -50,7 +49,6 @@ final SaveStore saveStore = SaveStore();
 final MuteStore muteStore = MuteStore();
 final AccountStore accountStore = AccountStore();
 final TagHistoryStore tagHistoryStore = TagHistoryStore();
-final HistoryStore historyStore = HistoryStore();
 final NovelHistoryStore novelHistoryStore = NovelHistoryStore();
 final TopStore topStore = TopStore();
 final BookTagStore bookTagStore = BookTagStore();
@@ -191,7 +189,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             return child;
           },
           themeMode: userSetting.themeMode,
-          theme: ThemeData.light().copyWith(colorScheme: lightColorScheme),
+          theme: ThemeData.light().copyWith(
+              colorScheme: lightColorScheme,
+              scaffoldBackgroundColor: lightColorScheme.surface),
           darkTheme: ThemeData.dark().copyWith(
               scaffoldBackgroundColor:
                   userSetting.isAMOLED ? Colors.black : null,
